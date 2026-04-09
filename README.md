@@ -1,18 +1,17 @@
-print("Simple Calculator")
+import random
+import string
 
-a = int(input("Enter first number: "))
-b = int(input("Enter second number: "))
+length = int(input("Enter password length: "))
 
-print("1.Add  2.Subtract  3.Multiply  4.Divide")
-choice = int(input("Choose operation: "))
+letters = string.ascii_letters
+digits = string.digits
+symbols = string.punctuation
 
-if choice == 1:
-    print("Result =", a + b)
-elif choice == 2:
-    print("Result =", a - b)
-elif choice == 3:
-    print("Result =", a * b)
-elif choice == 4:
-    print("Result =", a / b)
-else:
-    print("Invalid choice")
+all_chars = letters + digits + symbols
+
+password = ""
+
+for i in range(length):
+    password += random.choice(all_chars)
+
+print("Generated Password:", password)
