@@ -1,17 +1,30 @@
-import random
-import string
+tasks = []
 
-length = int(input("Enter password length: "))
+while True:
+    print("\n1. Add Task")
+    print("2. View Tasks")
+    print("3. Delete Task")
+    print("4. Exit")
 
-letters = string.ascii_letters
-digits = string.digits
-symbols = string.punctuation
+    choice = input("Enter choice: ")
 
-all_chars = letters + digits + symbols
+    if choice == '1':
+        task = input("Enter task: ")
+        tasks.append(task)
+        print("Task added!")
 
-password = ""
+    elif choice == '2':
+        print("\nYour Tasks:")
+        for i, task in enumerate(tasks):
+            print(i+1, task)
 
-for i in range(length):
-    password += random.choice(all_chars)
+    elif choice == '3':
+        num = int(input("Enter task number to delete: "))
+        tasks.pop(num-1)
+        print("Task deleted!")
 
-print("Generated Password:", password)
+    elif choice == '4':
+        break
+
+    else:
+        print("Invalid choice")
